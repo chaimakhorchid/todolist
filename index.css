@@ -152,11 +152,12 @@ form input {
   width: 90%;
   color: var(--clearBlack);
   background-color: var(--mainWhite);
-  height: 200px;
-  display: flex;
-  flex-direction: row;
 }
 
-.checklist-container img {
-  width: 600px;
+.box {
+  
+}
+
+.button img {
+  width: 60px;
 }
