@@ -23,7 +23,7 @@ button {
 :root {
   --mainRed: #ff0048;
   --mainRedAlpha: #ff0048c8;
-  --greatBlue: #4f49ff;
+  --lightBlue: #e1e0ff;
   --clearGreen: #58ebbf;
   --wh: #fff;
   --clearBlack: #141414;
@@ -111,9 +111,8 @@ footer {
 
 footer input {
   font-size: 40px;
-  background: var(--greatBlue);
   border: none;
-  color: antiquewhite;
+  color: var(--clearBlack);
   font-family: 'ClashDisplay-Regular';
 }
 
@@ -123,7 +122,7 @@ button {
 }
 
 footer img {
-  width: 70px;
+  width: 50px;
 }
 
 /*  */
