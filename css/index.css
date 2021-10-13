@@ -142,13 +142,13 @@ form input {
 
 
 /* checklist css */
-.checklist-container {
+.checklist-ctn {
   width: 100%;
   color: var(--clearBlack);
   background-color: var(--mainWhite);
   height: 200px;
 }
 
-.checklist-container img {
-  width: 180px;
+.checklist-ctn img {
+  width: 70px;
 }

@@ -10,13 +10,18 @@ function onTaskSubmit() {
   
   tasks.forEach(function(task) {
     list.innerHTML = list.innerHTML + `
+      <div class="tasklin">
         <input type="checkbox">
         <li>${task.value}</li>
         <button class="button"><img src="./image/edit.png" alt="Check task logo"></button>
         <button class="button"><img src="./image/trash.png" alt="Delete ask logo"></button>
+      </div>
     `
   })
 }
+
+
+
 
 // function onTaskSubmit(){
 
