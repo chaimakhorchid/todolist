@@ -149,12 +149,14 @@ form input {
 
 /* checklist css */
 .checklist-container {
-  width: 100%;
+  width: 90%;
   color: var(--clearBlack);
   background-color: var(--mainWhite);
   height: 200px;
+  display: flex;
+  flex-direction: row;
 }
 
 .checklist-container img {
-  width: 180px;
+  width: 600px;
 }
