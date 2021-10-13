@@ -5,44 +5,47 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
-  <title>todolist</title>
+  <link rel="stylesheet" href="./css/clash-display.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <title>todolist - Your super tasks ready</title>
 </head>
 
 <body>
   
-    <!-- header -->
+    <!-- Header -->
     <header>
-      <div>
+      <div class="heading-header">
         <!-- title app -->
-        <h1>todolist</h1>
+        <h1>todolist 🌈 ⏰ <span>Maybe Everything Is Good</span></h1>
       </div>
-      <div>
+      <br>
+      <div class="input-header">
         <!-- editable title list -->
-        <input type="text" placeholder="Title list">
+        <input type="text" placeholder="Enter title tasks...">
       </div>
     </header>
 
 
   <!-- Checklist -->
-  <section>
+  <section class="checklist-container">
     <div>
       <input type="checkbox">
       <p>First task</p>
-      <button><img src="" alt="editing"></button>
-      <button><img src="" alt="delete"></button>
+      <button><img src="./image/edit.png" alt="Check task logo"></button>
+      <button><img src="./image/trash.png" alt="Delete ask logo"></button>
     </div>
   </section>
 
-  <!-- Input fix -->
+  <!-- Fixed Input -->
   <footer>
-    <form>
-      <input type="text" placeholder="Insert task">
-      <button><img src="./image/arrow-right.png" alt="send"></button>
+    <form onsubmit="onTaskSubmit(); return false;">
+      <input type="text" placeholder="Create a task">
+      <button class="control"><img src="./image/arrow-right.png" alt="Create task logo"></button>
     </form>
   </footer>
 
   <script src="index.js"></script>
+
 </body>
 
 </html>
