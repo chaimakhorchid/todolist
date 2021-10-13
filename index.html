@@ -27,19 +27,14 @@
 
   <!-- Checklist -->
   <section class="checklist-container">
-    <div>
-      <input type="checkbox">
-      <p>First task</p>
-      <button><img src="./image/edit.png" alt="Check task logo"></button>
-      <button><img src="./image/trash.png" alt="Delete ask logo"></button>
-    </div>
+      <ul id="list" class="box"></ul>
   </section>
 
   <!-- Fixed Input -->
   <footer>
-    <form onsubmit="onTaskSubmit(); return false">
-      <input type="text" id="inputUser" placeholder="Create a task">
-      <button type="submit" value="Submit"><img src="./image/arrow-right.png" alt="Create task logo"></button>
+    <form onsubmit="onTaskSubmit(); return false;">
+      <input  id="userInput" type="text" placeholder="Create a task">
+      <button id="enter" class="control"><img src="./image/arrow-right.png" alt="Create task logo"></button>
     </form>
   </footer>
 

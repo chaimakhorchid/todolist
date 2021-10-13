@@ -146,9 +146,12 @@ form input {
   width: 100%;
   color: var(--clearBlack);
   background-color: var(--mainWhite);
-  height: 200px;
 }
 
-.checklist-container img {
-  width: 180px;
+.box {
+  
+}
+
+.button img {
+  width: 60px;
 }
