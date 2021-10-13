@@ -40,24 +40,36 @@
 var list = document.getElementById("list")
 var tasks = []
 
+
 function onTaskSubmit() {
   var inputValue = document.getElementById("userInput").value
   var task = { value: inputValue, status: "to do" }
   tasks.push(task)
-  
+  displayList()
+}
+
+function edit(index) {
+  // exemple de modif
+  tasks[index].status = "doing"
+  displayList()
+}
+
+function remove(index) {
+  tasks.splice(index, 1)
+  displayList()
+}
+
+function displayList() {
   list.innerHTML = ``
-  
 
-
-  tasks.forEach(function(task) {
+  tasks.forEach(function(task, index) {
     list.innerHTML = list.innerHTML + `
-      <div class="tasklin">
-        <input type="checkbox">
-        <li>${task.value}</li>
-        <button class="button" onClick="onButtonClick(edit)"><img src="./image/edit.png" alt="Check task logo"></button>
-        <button class="button" onClick="onButtonClick(delete)"><img src="./image/trash.png" alt="Delete ask logo"></button>
-      </div>
-    `
+    <div class="tasklin">
+    <input type="checkbox">
+    <li>${task.value}</li>
+        <button class="button" onClick="edit(${index})"><img src="./image/edit.png" alt="Check task logo"></button> 
+        <button class="button" onClick="remove(${index})"><img src="./image/trash.png" alt="Delete ask logo"></button>     
+      </li>`
   })
 
   
