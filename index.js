@@ -1,48 +1,105 @@
-// <!DOCTYPE html>
-// <html lang="en">
-//   <head>
-//     <meta charset="UTF-8">
-//     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//     <title>Document</title>
-//   </head>
-//   <body>
-//     <form onsubmit="onTaskSubmit(); return false;">
-//       <input id="input" placeholder="Your task" />
-//       <button type="submit">Ajouter</button>
-//     </form>
-//     <ul id="list"></ul>
-//     <script src="index.js"></script>
-//   </body>
+// var list = document.getElementById("list")
+// var tasks = []
 
-var list = document.getElementById('list');
-var tasks = [];
+// function onTaskSubmit() {
+//   var inputValue = document.getElementById("input").value
+//   var task = { value: inputValue, status: "to do" }
+//   tasks.push(task)
+//   displayList()
+// }
+
+// function edit(index) {
+//   // exemple de modif
+//   tasks[index].status = "doing"
+//   displayList()
+// }
+
+// function remove(index) {
+//   tasks.splice(index, 1)
+//   displayList()
+// }
+
+// function displayList() {
+//   list.innerHTML = ``
+
+//   tasks.forEach(function(task, index) {
+//     list.innerHTML = list.innerHTML + `
+//       <li class="item">
+//         <p>${task.value}</p>
+//         <p>${task.status}</p>
+//         <button onclick="edit(${index})">Modifier</button>
+//         <button onclick="remove(${index})">X</button>
+//       </li>
+//     `
+//   })
+// }
+
+
+
+
+var list = document.getElementById("list")
+var tasks = []
+
 
 function onTaskSubmit() {
-  var inputValue = document.getElementById('input').value;
-  var task = { value: inputValue, status: 'to do' };
-  tasks.push(task);
+  var inputValue = document.getElementById("userInput").value
+  var task = { value: inputValue, status: "to do" }
+  tasks.push(task)
+  displayList()
+}
 
-  list.innerHTML = ``;
+function edit(index) {
+  // exemple de modif
+  tasks[index].status = "doing"
+  displayList()
+}
 
-  tasks.forEach(function (task, index) {
-    list.innerHTML =
-      list.innerHTML +
-      `
-      <div class="tasklin">
-        <input type="checkbox">
-        <li>${task.value}</li>
-        <li>${task.status}</li>
-        <button class="button"><img src="./image/edit.png" alt="Check task logo"></button>
-        <button class="button" onclik="remove(${index})><img src="./image/trash.png" alt="Delete ask logo"></button>
-      </div>
-    `;
-  });
+function remove(index) {
+  tasks.splice(index, 1)
+  displayList()
+}
 
-  function tasks(i) {
-    tasks.splice(i);
+function displayList() {
+  list.innerHTML = ``
+
+  tasks.forEach(function(task, index) {
+    list.innerHTML = list.innerHTML + `
+    <div class="tasklin">
+    <input type="checkbox">
+    <li>${task.value}</li>
+        <button class="button" onClick="edit(${index})"><img src="./image/edit.png" alt="Check task logo"></button> 
+        <button class="button" onClick="remove(${index})"><img src="./image/trash.png" alt="Delete ask logo"></button>     
+      </li>`
+  })
+
+  
+  
+  
+}
+
+function button(filter){
+  if (filter === "todo"){
+    var toDoList = tasks.filter(function(task){
+      return task.status = "to do"
+    })
+    return toDoList
+  }
+  if (filter === "doing"){
+    var doingList = tasks.filter(function(task){
+      return task.status = "doing"
+    })
+    return doingList
+  }
+  if (filter === "done"){
+    var doneList = tasks.filter(function(task){
+      return task.status = "done"
+    })
+    return doneList
   }
 }
+
+
+
 
 // function onTaskSubmit(){
 
