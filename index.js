@@ -1,3 +1,42 @@
+// var list = document.getElementById("list")
+// var tasks = []
+
+// function onTaskSubmit() {
+//   var inputValue = document.getElementById("input").value
+//   var task = { value: inputValue, status: "to do" }
+//   tasks.push(task)
+//   displayList()
+// }
+
+// function edit(index) {
+//   // exemple de modif
+//   tasks[index].status = "doing"
+//   displayList()
+// }
+
+// function remove(index) {
+//   tasks.splice(index, 1)
+//   displayList()
+// }
+
+// function displayList() {
+//   list.innerHTML = ``
+
+//   tasks.forEach(function(task, index) {
+//     list.innerHTML = list.innerHTML + `
+//       <li class="item">
+//         <p>${task.value}</p>
+//         <p>${task.status}</p>
+//         <button onclick="edit(${index})">Modifier</button>
+//         <button onclick="remove(${index})">X</button>
+//       </li>
+//     `
+//   })
+// }
+
+
+
+
 var list = document.getElementById("list")
 var tasks = []
 
@@ -8,17 +47,47 @@ function onTaskSubmit() {
   
   list.innerHTML = ``
   
+
+
   tasks.forEach(function(task) {
     list.innerHTML = list.innerHTML + `
       <div class="tasklin">
         <input type="checkbox">
         <li>${task.value}</li>
-        <button class="button"><img src="./image/edit.png" alt="Check task logo"></button>
-        <button class="button"><img src="./image/trash.png" alt="Delete ask logo"></button>
+        <button class="button" onClick="onButtonClick(edit)"><img src="./image/edit.png" alt="Check task logo"></button>
+        <button class="button" onClick="onButtonClick(delete)"><img src="./image/trash.png" alt="Delete ask logo"></button>
       </div>
     `
   })
+
+  
+  
+  
 }
+
+function button(filter){
+  if (filter === "todo"){
+    var toDoList = tasks.filter(function(task){
+      return task.status = "to do"
+    })
+    return toDoList
+  }
+  if (filter === "doing"){
+    var doingList = tasks.filter(function(task){
+      return task.status = "doing"
+    })
+    return doingList
+  }
+  if (filter === "done"){
+    var doneList = tasks.filter(function(task){
+      return task.status = "done"
+    })
+    return doneList
+  }
+}
+
+
+
 
 // function onTaskSubmit(){
 
