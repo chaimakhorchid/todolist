@@ -14,11 +14,18 @@ function onTaskSubmit() {
         <input type="checkbox">
         <li>${task.value}</li>
         <button class="button"><img src="./image/edit.png" alt="Check task logo"></button>
-        <button class="button"><img src="./image/trash.png" alt="Delete ask logo"></button>
+        <button class="button" ="delete" onclick="onClickRemove(${inputValue})"><img src="./image/trash.png" alt="Delete ask logo"></button>
       </div>
     `
   })
 }
+
+function suppression(element){
+    var container = document.getElementById("delete");
+    container.removeChild(element.parentNode.parentNode);
+  }
+
+
 
 // function onTaskSubmit(){
 
