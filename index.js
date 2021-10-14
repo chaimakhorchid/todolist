@@ -1,10 +1,12 @@
-var list = document.getElementById('list');
-var tasks = [];
+var list = document.getElementById("list")
+var tasks = []
+
 
 //creer un element//
 function onTaskSubmit() {
   var inputValue = document.getElementById('userInput').value;
-  var task = { value: inputValue, status: 'to do', priority: "" };
+  var inputNumberValue = document.getElementById('userInputNumber').value;
+  var task = { value: inputValue, status: 'to do', priority: inputNumberValue };
   tasks.push(task);
   displayList(tasks);
 }
@@ -65,13 +67,14 @@ function onSelectChange(index) {
 function displayList(array) {
   list.innerHTML = ``
   array.forEach(function (task, index) {
+    var statuCssClass = statusClass(task.status)
     list.innerHTML =
       list.innerHTML +
       `
-        <div class="tasklin">
+        <div class="tasklin ${statuCssClass}" >
           <li>
             <div class="titletask">
-              <p>${task.value}<p>
+              <p>${task.value}  <span>priority : ${task.priority}</span><p>
             </div>
             <div class="buttontask">
               <select class="select" onChange="onSelectChange(${index})">
@@ -101,10 +104,6 @@ function button(filter) {
 }
 
 
-
-//taches aleaoire //
-
-
 // randomButton
 function listRandom(){
   var randomBtn = document.getElementById("random");
@@ -118,3 +117,15 @@ function listRandom(){
   displayList(tasks);
 
 }
+
+//divers//
+
+function statusClass(status){
+    if(status === 'to do'){
+        return "red"
+    }else if (status === 'doing'){
+        return "yellow"
+    }else{
+        return "blue"
+    }
+} 

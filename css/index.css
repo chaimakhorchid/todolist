@@ -86,7 +86,8 @@ button.filter-btn:hover {
 }
 
 span {
-  color: var(--clearBlack);
+  font-size: 19px;
+  color: rgba(0, 0, 0, 0.575);
 }
 
 h1,
@@ -261,6 +262,22 @@ ul {
   background-color: rgb(188, 160, 253);
 }
 
+.red{
+  background-color: rgb(111, 56, 240);
+  color: white;
+ }
+ 
+ .yellow{
+   background-color: rgb(166, 129, 253);
+   color: white;
+ }
+ 
+ .blue{
+   background-color:rgb(197, 173, 255);
+   color: white;
+ }
+
+
 @media (max-width: 700px){
   header h1{
     font-size: 28px;
@@ -330,12 +347,13 @@ ul {
     height: 46px;
     padding: 26px;
   }
-
+  
   footer img {
     width: 28px;
   }
-
+  
   footer input{
     font-size: 19px;
   }
 }
+ 
