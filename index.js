@@ -41,6 +41,44 @@ function onTaskSubmit() {
     displayList();
   }
 
+  //select status//
+
+  var list = document.getElementById("list")
+  var tasks = []
+  
+  
+  function onSelectChange(index) {
+    console.log(index)
+    var select = document.getElementsByClassName("select")[index]
+    console.log(select.value)
+    tasks[index].status = select.value
+    displayList()
+  }
+  
+  function onTaskSubmit() {
+    var inputValue = document.getElementById("input").value
+    var task = { value: inputValue, status: "to do" }
+    tasks.push(task)
+    displayList()
+  }
+  
+  function displayList() {
+    list.innerHTML = ``
+  
+    tasks.forEach(function(task, i) {
+      list.innerHTML = list.innerHTML + `
+        <li class="item">
+          <p>${task.value}</p>
+          <p>${task.status}</p>
+          <select class="select" onChange="onSelectChange(${i})">
+            <option ${task.status === "to do" ? 'selected' : ''} value="to do">To do</option>
+            <option ${task.status === "doing" ? 'selected' : ''} value="doing">Doing</option>
+            <option ${task.status === "done" ? 'selected' : ''} value="done">Done</option>
+          </select>
+        </li>
+      `
+    })
+  }
 
 //supprimer//
 function displayList() {
@@ -96,9 +134,9 @@ function button(filter) {
 
 function listRandom(){
     var randomBtn = document.getElementById("random");
-    var randomList = ["manger","dormir","boire",,"douche","nettoyer"]
+    var randomList = ["Faire les courses","Aller à la gym","Faire du yoga","Allez chercher les enfants à l'école","Faire le ménage"]
    
-     var random = randomList[Math.floor(Math.random() * randomList.length -1)];
+     var random = randomList[Math.floor(Math.random() * randomList.length)];
      console.log(random);
      var task = { value: random, status: 'to do' };
     tasks.push(task);
