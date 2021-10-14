@@ -4,7 +4,7 @@ var tasks = [];
 //creer un element//
 function onTaskSubmit() {
   var inputValue = document.getElementById('userInput').value;
-  var task = { value: inputValue, status: 'to do', priority: "" };
+  var task = { value: inputValue, status: 'to do', priority: 1 };
   tasks.push(task);
   displayList();
 }
@@ -48,16 +48,16 @@ function displayList() {
   list.innerHTML = ``;
 
 
-  tasks.forEach(function (task, index) {
+  tasks.forEach(function (task, index, priority) {
     list.innerHTML =
       list.innerHTML +
       `
-    <div class="tasklin">
-    <input type="checkbox" class="circle-checkbox">
-    <li>${task.value}</li>
-        <button class="button" onClick="edit(${index})"><img src="./image/edit.png" alt="editing-logo"></button> 
-        <button class="button" onClick="remove(${index})"><img src="./image/trash.png" alt="deleting-logo"></button>     
-      </li>
+        <div class="tasklin">
+        <input type="checkbox" class="circle-checkbox">
+        <li>${task.value}</li>
+           <button class="button" onClick="edit(${index})"><img src="./image/edit.png" alt="editing-logo"></button> 
+           <button class="button" onClick="remove(${index})"><img src="./image/trash.png" alt="deleting-logo"></button>     
+        </li>
       `;
   });
 }
@@ -96,7 +96,7 @@ function button(filter) {
 
 function listRandom(){
     var randomBtn = document.getElementById("random");
-    var randomList = ["manger","dormir","boire",,"douche","nettoyer"]
+    var randomList = ["manger", "dormir", "boire", "douche",  "nettoyer"]
    
      var random = randomList[Math.floor(Math.random() * randomList.length -1)];
      console.log(random);
@@ -113,7 +113,7 @@ function listRandom(){
 // randomButton
 function listRandom(){
   var randomBtn = document.getElementById("random");
-  var randomList = ["Faire les courses","Aller à la gym","Faire du yoga","Allez chercher les enfants à l'école","Faire le ménage"]
+  var randomList = ["Faire les courses", "Aller à la gym", "Faire du yoga", "Allez chercher les enfants à l'école", "Faire le ménage"];
 
    var random = randomList[Math.floor(Math.random() * randomList.length)];
    console.log(random);
