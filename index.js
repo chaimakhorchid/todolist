@@ -42,29 +42,23 @@ function onTaskSubmit() {
   }
   
 
-  
-  
- function remove(index) {
-   tasks.splice(index, 1)
-   displayList()
- }
 
- function displayList() {
-   list.innerHTML = ``
 
-   tasks.forEach(function(task, index) {
-     list.innerHTML = list.innerHTML + `
-       <li class="item">
-         <p>${task.value}</p>
-         <p>${task.status}</p>
-         <button onclick="edit(${index})">Modifier</button>
-         <button onclick="remove(${index})">X</button>
-       </li>
-     `
-   })
- }
+
+
+
+  
+  //supprimer//
+   
+    function remove(index) {
+        tasks.splice(index, 1);
+        displayList();
+      }
     
- //Editing the status of the task
+    
+// Editing the status of the task
+function displayList() {
+  list.innerHTML = ``
   tasks.forEach(function (task, index) {
     list.innerHTML =
       list.innerHTML +
@@ -117,12 +111,11 @@ function listRandom(){
   var randomBtn = document.getElementById("random");
   var randomList = ["Faire les courses","Aller à la gym","Faire du yoga","Allez chercher les enfants à l'école","Faire le ménage"]
 
-   var random = randomList[Math.floor(Math.random() * randomList.length)];
-   console.log(random);
+  var random = randomList[Math.floor(Math.random() * randomList.length)];
+  console.log(random);
    var task = { value: random, status: 'to do' };
   tasks.push(task);
   console.log(tasks);
   displayList();
-
 
 }
