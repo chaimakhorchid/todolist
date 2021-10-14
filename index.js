@@ -66,10 +66,11 @@ function onSelectChange(index) {
 function displayList(array) {
   list.innerHTML = ``
   array.forEach(function (task, index) {
+    var statuCssClass = statusClass(task.status)
     list.innerHTML =
       list.innerHTML +
       `
-        <div class="tasklin">
+        <div class="tasklin ${statuCssClass}" >
           <li>
             <div class="titletask">
               <p>${task.value}<p>
@@ -115,3 +116,15 @@ function listRandom(){
   displayList(tasks);
 
 }
+
+//divers//
+
+function statusClass(status){
+    if(status === 'to do'){
+        return "red"
+    }else if (status === 'doing'){
+        return "yellow"
+    }else{
+        return "blue"
+    }
+} 
