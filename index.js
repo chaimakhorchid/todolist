@@ -4,7 +4,7 @@ var tasks = [];
 //creer un element//
 function onTaskSubmit() {
   var inputValue = document.getElementById('userInput').value;
-  var task = { value: inputValue, status: 'to do' };
+  var task = { value: inputValue, status: 'to do', priority: "" };
   tasks.push(task);
   displayList();
 }
@@ -143,5 +143,22 @@ function listRandom(){
     console.log(tasks);
     displayList();
 
-     
- }
+  var task = tasks[index];
+  task.value = inputValue;
+  displayList();
+}
+
+// randomButton
+function listRandom(){
+  var randomBtn = document.getElementById("random");
+  var randomList = ["Faire les courses","Aller à la gym","Faire du yoga","Allez chercher les enfants à l'école","Faire le ménage"]
+
+   var random = randomList[Math.floor(Math.random() * randomList.length)];
+   console.log(random);
+   var task = { value: random, status: 'to do' };
+  tasks.push(task);
+  console.log(tasks);
+  displayList();
+
+
+}
