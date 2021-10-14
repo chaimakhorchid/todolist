@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="./css/clash-display.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <title>ToDoList ⏰ WakeUp For Your Amazing Tasks</title>
+</head>
+
+<body>
+  <div class="todolist">
+    <!-- Header -->
+    <header>
+      <div class="heading-header">
+        <!-- title app -->
+        <h1>todolist 🌈 <span>Maybe Everything Is Good</span></h1>
+        <button class="filter filter-btn" type="submit" onclick="listRandom()" id="random">Random</button>
+      </div>
+      <br>
+      <div class="input-header">
+        <!-- buttons filter -->
+        <button class="filter filter-btn" onClick="button('to do')">To Do</button>
+        <button class="filter filter-btn" onClick="button('doing')">Doing</button>
+        <button class="filter filter-btn" onClick="button('done')">Done</button>
+        <button class="filter filter-btn" onClick="button('all')">All</button>        
+      </div>
+    </header>
+
+
+    <!-- Checklist -->
+    <section class="checklist-ctn">
+        <ul id="list"></ul>
+    </section>
+  </div>  
+
+  <!-- Fixed Input -->
+  <footer>
+    <form onsubmit="onTaskSubmit(); return false;">
+      <input id="userInput" type="text" placeholder="Define a task" autocomplete="off">
+      <input id="userInputNumber" type="number" placeholder="Define a priority" autocomplete="off" min="1" max="5">
+      <button id="enter" class="control"><img src="./image/arrow-right.png" alt="Create task logo"></button>
+    </form>
+  </footer>
+
+  <script src="index.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+  </body>
+  </html>
