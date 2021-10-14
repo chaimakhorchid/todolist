@@ -6,7 +6,7 @@ function onTaskSubmit() {
   var inputValue = document.getElementById('userInput').value;
   var task = { value: inputValue, status: 'to do', priority: "" };
   tasks.push(task);
-  displayList();
+  displayList(tasks);
 }
 
  //modification //
@@ -38,7 +38,7 @@ function onTaskSubmit() {
   
     var task = tasks[index];
     task.value = inputValue;
-    displayList();
+    displayList(tasks);
   }
 
 
@@ -49,16 +49,22 @@ function onTaskSubmit() {
   
   //supprimer//
    
-    function remove(index) {
-        tasks.splice(index, 1);
-        displayList();
-      }
+function remove(index) {
+  tasks.splice(index, 1);
+  displayList(tasks);
+}
     
-    
+function onSelectChange(index) {
+  console.log(index)
+  var select = document.getElementsByClassName("select")[index]
+  console.log(select.value)
+  tasks[index].status = select.value
+  displayList(tasks)
+}
 // Editing the status of the task
-function displayList() {
+function displayList(array) {
   list.innerHTML = ``
-  tasks.forEach(function (task, index) {
+  array.forEach(function (task, index) {
     list.innerHTML =
       list.innerHTML +
       `
@@ -86,43 +92,18 @@ function displayList() {
 // Filter while clicking on the each button 
 
 function button(filter) {
-  if (filter === 'todo') {
-    var toDoList = tasks.filter(function (task) {
-      return (task.status = 'to do');
-    });
-    return toDoList;
-  } else if (filter === 'doing') {
-    var doingList = tasks.filter(function (task) {
-      return (task.status = 'doing');
-    });
-    return doingList;
-  } else if (filter === 'done') {
-    var doneList = tasks.filter(function (task) {
-      return (task.status = 'done');
-    });
-    return doneList;
-  }
+  console.log(tasks)
+  var filterTask = tasks.filter(function(task){
+    return task.status === filter || filter === "all"
+  })
+  console.log(filterTask)
+  displayList(filterTask);
 }
 
 
 
 //taches aleaoire //
 
-function listRandom(){
-    var randomBtn = document.getElementById("random");
-    var randomList = ["manger","dormir","boire",,"douche","nettoyer"]
-   
-     var random = randomList[Math.floor(Math.random() * randomList.length -1)];
-     console.log(random);
-     var task = { value: random, status: 'to do' };
-    tasks.push(task);
-    console.log(tasks);
-    displayList();
-
-  var task = tasks[index];
-  task.value = inputValue;
-  displayList();
-}
 
 // randomButton
 function listRandom(){
@@ -134,6 +115,6 @@ function listRandom(){
    var task = { value: random, status: 'to do' };
   tasks.push(task);
   console.log(tasks);
-  displayList();
+  displayList(tasks);
 
 }

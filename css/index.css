@@ -20,20 +20,16 @@ li {
   font-size: 40px;
   font-weight: normal;
   font-weight: 600;
-  margin: 30px 20px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 li div {
   align-items: center;
   display: flex;
+  margin: 0 15px;
 }
-
-.titletask {
-  display: flex;
-}
-
 
 .circle-checkbox {
   height: 50px;
@@ -110,6 +106,7 @@ header {
   justify-content: center;
   /* header container will display its 2 divs verticaly */
   flex-direction: column;
+  text-align: center;
 }
 
 header h1 {
@@ -214,7 +211,7 @@ ul {
 }
 
 .tasklin {
-  display: flex;
+  /* display: flex; */
   flex-direction: row;
   align-items: center;
   background-color: rgb(188, 160, 253);
