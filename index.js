@@ -1,42 +1,3 @@
-// var list = document.getElementById("list")
-// var tasks = []
-
-// function onTaskSubmit() {
-//   var inputValue = document.getElementById("input").value
-//   var task = { value: inputValue, status: "to do" }
-//   tasks.push(task)
-//   displayList()
-// }
-
-// function edit(index) {
-//   // exemple de modif
-//   tasks[index].status = "doing"
-//   displayList()
-// }
-
-// function remove(index) {
-//   tasks.splice(index, 1)
-//   displayList()
-// }
-
-// function displayList() {
-//   list.innerHTML = ``
-
-//   tasks.forEach(function(task, index) {
-//     list.innerHTML = list.innerHTML + `
-//       <li class="item">
-//         <p>${task.value}</p>
-//         <p>${task.status}</p>
-//         <button onclick="edit(${index})">Modifier</button>
-//         <button onclick="remove(${index})">X</button>
-//       </li>
-//     `
-//   })
-// }
-
-
-
-
 var list = document.getElementById("list")
 var tasks = []
 
@@ -59,6 +20,7 @@ function remove(index) {
   displayList()
 }
 
+//supprimer//
 function displayList() {
   list.innerHTML = ``
 
@@ -76,7 +38,7 @@ function displayList() {
   
   
 }
-
+//filtrer les taches //
 function button(filter){
   if (filter === "todo"){
     var toDoList = tasks.filter(function(task){
@@ -98,6 +60,16 @@ function button(filter){
   }
 }
 
+//taches aleaoire //
+
+// var randomBtn = document.getElementById("random");
+// var list = ["manger","dormir","boire","pleurer","douche","nettoyer"]
+
+
+//     function listRandom(list){
+//         return list[Math.floor(Math.random() * list.length)];
+//     }
+//     listRandom();
 
 
 
