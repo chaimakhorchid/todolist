@@ -1,6 +1,8 @@
 var list = document.getElementById('list');
 var tasks = [];
 
+// Function to add a task on the list
+
 function onTaskSubmit() {
   var inputValue = document.getElementById('userInput').value;
   var task = { value: inputValue, status: 'to do' };
@@ -8,10 +10,14 @@ function onTaskSubmit() {
   displayList();
 }
 
+// Remove a task
+
 function remove(index) {
   tasks.splice(index, 1);
   displayList();
 }
+
+// Display the task on the website
 
 function displayList() {
   list.innerHTML = ``;
@@ -20,15 +26,24 @@ function displayList() {
     list.innerHTML =
       list.innerHTML +
       `
-    <div class="tasklin">
-    <input type="checkbox" class="circle-checkbox">
-    <li>${task.value}</li>
-        <button class="button" onClick="edit(${index})"><img src="./image/edit.png" alt="editing-logo"></button> 
-        <button class="button" onClick="remove(${index})"><img src="./image/trash.png" alt="deleting-logo"></button>     
-      </li>
+        <div class="tasklin">
+          <li>${task.value}</li>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <liclass="dropdown-item">To Do</li>
+              <liclass="dropdown-item">Doing</li>
+              <liclass="dropdown-item">Done</li>
+            </ul>
+           <button class="button" onClick="edit(${index})"><img src="./image/edit.png" alt="editing-logo"></button> 
+           <button class="button" onClick="remove(${index})"><img src="./image/trash.png" alt="deleting-logo"></button>     
+          </li>
+        </div>
       `;
   });
 }
+
+// Editing the status of the task
+
+// Filter while clicking on the each button 
 
 function button(filter) {
   if (filter === 'todo') {
@@ -36,20 +51,19 @@ function button(filter) {
       return (task.status = 'to do');
     });
     return toDoList;
-  }
-  if (filter === 'doing') {
+  } else if (filter === 'doing') {
     var doingList = tasks.filter(function (task) {
       return (task.status = 'doing');
     });
     return doingList;
-  }
-  if (filter === 'done') {
+  } else if (filter === 'done') {
     var doneList = tasks.filter(function (task) {
       return (task.status = 'done');
     });
     return doneList;
   }
 }
+
 // eviter repetition grâce variable
 
 function edit(index) {
