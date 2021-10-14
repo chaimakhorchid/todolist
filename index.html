@@ -15,6 +15,7 @@
       <div class="heading-header">
         <!-- title app -->
         <h1>todolist 🌈 <span>Maybe Everything Is Good</span></h1>
+        <button class="filter filter-btn" type="submit" onclick="listRandom()" id="random">Random</button>
       </div>
       <br>
       <div class="input-header">
@@ -35,6 +36,7 @@
   <footer>
     <form onsubmit="onTaskSubmit(); return false;">
       <input id="userInput" type="text" placeholder="Define a task" autocomplete="off">
+      <input id="userInputNumber" type="number" placeholder="Define a priority" autocomplete="off">
       <button id="enter" class="control"><img src="./image/arrow-right.png" alt="Create task logo"></button>
     </form>
   </footer>
