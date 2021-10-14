@@ -15,6 +15,11 @@ body {
   color: #fff;
 }
 
+.todolist{
+  height: calc(100vh - 120px);
+  overflow: scroll;
+}
+
 li {
   color: #000;
   font-size: 40px;
@@ -150,6 +155,7 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 60px;
+  background-color: #ffb8d1;
 }
 /* justify-content: center, horizontal alignment  */
 /* align-items: center, vertical alignment  */
@@ -159,6 +165,7 @@ footer input {
   border: none;
   color: #000;
   font-weight: bolder;
+  background-color: #ffb8d1;
 }
 
 footer button {
