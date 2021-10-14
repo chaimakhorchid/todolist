@@ -20,8 +20,15 @@ li {
   font-size: 40px;
   font-weight: normal;
   font-weight: 600;
-  margin: 30px auto;
+  margin: 30px 20px;
+  display: flex;
+  justify-content: space-between;
 }
+
+/* li div {
+
+} */
+
 
 .circle-checkbox {
   height: 50px;
@@ -225,4 +232,15 @@ ul {
   font-size: 40px;
   background-color: var(--lightBlue);
   margin: 20px;
+}
+
+.select{
+  width: 100px;
+  height: 40px; 
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 5px;
+  border: 4px solid rgb(129, 94, 211);
+  background-color: rgb(188, 160, 253);
 }
