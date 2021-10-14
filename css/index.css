@@ -39,6 +39,10 @@ li {
   position: relative;
 }
 
+#random {
+  left: 0;
+}
+
 .filter {
   width: 95px;
   height: 35px;
@@ -109,6 +113,9 @@ header h1 {
 }
 
 header.heading-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #fff;
   margin-bottom: 5px;
 }
