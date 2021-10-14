@@ -23,8 +23,8 @@ function onTaskSubmit() {
         <input class="editingInput" id="editInput" type="text" placeholder="Edit the task" value="${tasks[index].value}" autocomplete="off">
         <button class="editingButton" id="enter">Edit</button>
       </form>
-    `;
-  }
+      `;
+    }
   
   // edit a task by  
   function editTask(index) {
@@ -40,33 +40,57 @@ function onTaskSubmit() {
     task.value = inputValue;
     displayList();
   }
+  
 
-//supprimer//
-function displayList() {
-    console.log("display");
-  list.innerHTML = ``;
+  
+  
+ function remove(index) {
+   tasks.splice(index, 1)
+   displayList()
+ }
 
+ function displayList() {
+   list.innerHTML = ``
 
+   tasks.forEach(function(task, index) {
+     list.innerHTML = list.innerHTML + `
+       <li class="item">
+         <p>${task.value}</p>
+         <p>${task.status}</p>
+         <button onclick="edit(${index})">Modifier</button>
+         <button onclick="remove(${index})">X</button>
+       </li>
+     `
+   })
+ }
+    
+ //Editing the status of the task
   tasks.forEach(function (task, index) {
     list.innerHTML =
       list.innerHTML +
       `
-    <div class="tasklin">
-    <input type="checkbox" class="circle-checkbox">
-    <li>${task.value}</li>
-        <button class="button" onClick="edit(${index})"><img src="./image/edit.png" alt="editing-logo"></button> 
-        <button class="button" onClick="remove(${index})"><img src="./image/trash.png" alt="deleting-logo"></button>     
-      </li>
+        <div class="tasklin">
+          <li>
+            <div>
+              <p>${task.value}<p>
+            </div>
+            <div>
+              <select class="select" onChange="onSelectChange(${index})">
+                <option ${task.status === "to do" ? 'selected' : ''} value="to do">To do</option>
+                <option ${task.status === "doing" ? 'selected' : ''} value="doing">Doing</option>
+                <option ${task.status === "done" ? 'selected' : ''} value="done">Done</option>
+              </select>
+              <button class="button" onClick="edit(${index})"><img src="./image/edit.png" alt="editing-logo"></button> 
+              <button class="button" onClick="remove(${index})"><img src="./image/trash.png" alt="deleting-logo"></button>     
+            </div>
+          </li>
+        </div>
       `;
   });
 }
 
-function remove(index) {
-    tasks.splice(index, 1);
-    displayList();
-  }
 
-// filtrer//
+// Filter while clicking on the each button 
 
 function button(filter) {
   if (filter === 'todo') {
@@ -74,14 +98,12 @@ function button(filter) {
       return (task.status = 'to do');
     });
     return toDoList;
-  }
-  if (filter === 'doing') {
+  } else if (filter === 'doing') {
     var doingList = tasks.filter(function (task) {
       return (task.status = 'doing');
     });
     return doingList;
-  }
-  if (filter === 'done') {
+  } else if (filter === 'done') {
     var doneList = tasks.filter(function (task) {
       return (task.status = 'done');
     });
