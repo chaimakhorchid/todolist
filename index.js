@@ -64,10 +64,10 @@ function displayList() {
       `
         <div class="tasklin">
           <li>
-            <div>
+            <div class="titletask">
               <p>${task.value}<p>
             </div>
-            <div>
+            <div class="buttontask">
               <select class="select" onChange="onSelectChange(${index})">
                 <option ${task.status === "to do" ? 'selected' : ''} value="to do">To do</option>
                 <option ${task.status === "doing" ? 'selected' : ''} value="doing">Doing</option>

@@ -22,11 +22,16 @@ li {
   font-weight: 600;
   margin: 30px 20px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
 
 li div {
-  
+  align-items: center;
+  display: flex;
+}
+
+.titletask {
+  display: flex;
 }
 
 
