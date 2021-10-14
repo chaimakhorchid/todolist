@@ -1,140 +1,107 @@
-var list = document.getElementById("list")
-var tasks = []
-
+var list = document.getElementById('list');
+var tasks = [];
 
 function onTaskSubmit() {
-  var inputValue = document.getElementById("userInput").value
-  var task = { value: inputValue, status: "to do" }
-  tasks.push(task)
-  displayList()
-}
-
-function edit(index) {
-  // exemple de modif
-  tasks[index].status = "doing"
-  displayList()
+  var inputValue = document.getElementById('userInput').value;
+  var task = { value: inputValue, status: 'to do' };
+  tasks.push(task);
+  displayList();
 }
 
 function remove(index) {
-  tasks.splice(index, 1)
-  displayList()
+  tasks.splice(index, 1);
+  displayList();
 }
 
 //supprimer//
 function displayList() {
-  list.innerHTML = ``
+    console.log("display");
+  list.innerHTML = ``;
 
-  tasks.forEach(function(task, index) {
-    list.innerHTML = list.innerHTML + `
+
+  tasks.forEach(function (task, index) {
+    list.innerHTML =
+      list.innerHTML +
+      `
     <div class="tasklin">
-    <input type="checkbox">
+    <input type="checkbox" class="circle-checkbox">
     <li>${task.value}</li>
-        <button class="button" onClick="edit(${index})"><img src="./image/edit.png" alt="Check task logo"></button> 
-        <button class="button" onClick="remove(${index})"><img src="./image/trash.png" alt="Delete ask logo"></button>     
-      </li>`
-  })
+        <button class="button" onClick="edit(${index})"><img src="./image/edit.png" alt="editing-logo"></button> 
+        <button class="button" onClick="remove(${index})"><img src="./image/trash.png" alt="deleting-logo"></button>     
+      </li>
+      `;
+  });
+}
 
-  
-  
-  
-}
-//filtrer les taches //
-function button(filter){
-  if (filter === "todo"){
-    var toDoList = tasks.filter(function(task){
-      return task.status = "to do"
-    })
-    return toDoList
+function button(filter) {
+  if (filter === 'todo') {
+    var toDoList = tasks.filter(function (task) {
+      return (task.status = 'to do');
+    });
+    return toDoList;
   }
-  if (filter === "doing"){
-    var doingList = tasks.filter(function(task){
-      return task.status = "doing"
-    })
-    return doingList
+  if (filter === 'doing') {
+    var doingList = tasks.filter(function (task) {
+      return (task.status = 'doing');
+    });
+    return doingList;
   }
-  if (filter === "done"){
-    var doneList = tasks.filter(function(task){
-      return task.status = "done"
-    })
-    return doneList
+  if (filter === 'done') {
+    var doneList = tasks.filter(function (task) {
+      return (task.status = 'done');
+    });
+    return doneList;
   }
 }
+// eviter repetition grâce variable
 
 //taches aleaoire //
 
-// var randomBtn = document.getElementById("random");
-// var list = ["manger","dormir","boire","pleurer","douche","nettoyer"]
+ 
 
+     function listRandom(){
+        var randomBtn = document.getElementById("random");
+        var randomList = ["manger","dormir","boire",,"douche","nettoyer"]
+       
+         var random = randomList[Math.floor(Math.random() * randomList.length -1)];
+         console.log(random);
+         var task = { value: random, status: 'to do' };
+        tasks.push(task);
+        console.log(tasks);
+        displayList();
 
-//     function listRandom(list){
-//         return list[Math.floor(Math.random() * list.length)];
-//     }
-//     listRandom();
+         
+     }
+    
 
+ //modification //
+function edit(index) {
+  console.log("message d'indication tasks :", tasks);
+  console.log("message d'indication index :" + index);
+  console.log("message d'indication de la tâche choisie : ", tasks[index]);
 
+  list.innerHTML = '';
+  list.innerHTML =
+    list.innerHTML +
+    `
+    <form onsubmit="editTask(${index}); return false;">
+      <input class="editingInput" id="editInput" type="text" placeholder="Edit the task" value="${tasks[index].value}" autocomplete="off">
+      <button class="editingButton" id="enter">Edit</button>
+    </form>
+  `;
+}
 
-// function onTaskSubmit(){
+// edit a task by  
+function editTask(index) {
+  console.log(
+    "Edit task message d'indication de task choisie : ",
+    tasks[index]
+  );
+  var inputValue = document.getElementById('editInput').value;
 
-//     console.log("bien appeler");
-//     }
+  console.log(inputValue);
 
-//     var enterButton = document.getElementById("enter");
-//     var input = document.getElementById("userInput");
-//     var ul = document.querySelector("ul");
-//     var item = document.getElementsByTagName("li");
-//     var array = []
-
-//   //Retourner la longueur de l'input//
-//     function inputLength() {
-//       return input.value.length;
-//     }
-
-//   //creer un element et le rajouter a la list//
-//     function createListElement() {
-
-//       var li = document.createElement("li");
-//       li.appendChild(document.createTextNode(input.value));
-//       ul.appendChild(li);
-//       input.value = "";
-
-//       var newTask = array.map(function(task){
-
-//       })
-
-//     //supprimer un element
-//       var supp = document.createElement("button");
-//       supp.appendChild(document.createTextNode("X"));
-//       li.appendChild(supp);
-//       supp.addEventListener("click", deleteListItem);
-
-//       function deleteListItem() {
-//         li.classList.add("delete");
-//       }
-//   //modifer un element
-//       var modif = document.createElement("button");
-//       modif.appendChild(document.createTextNode("Modifier"));
-//       li.appendChild(modif)
-//       modif.addEventListener("click",modifListItem);
-
-//       function modifListItem() {
-//         li.classList.add("modifier")
-//       }
-//     }
-
-//     // cliquer sur le bouton//
-//     function addListAfterClick() {
-
-//       if (inputLength() > 0) {
-//         createListElement();
-//       }
-//     }
-//     //si on appuie sur la touche entrer ca va creer un nouvelle element//
-//     function addListAfterpress(event) {
-//       if (inputLength() > 0 && event.which === 13) {
-//         createListElement();
-//       }
-//     }
-
-//     enterButton.addEventListener("click", addListAfterClick);
-
-//     input.addEventListener("keypress", addListAfterpress);
+  var task = tasks[index];
+  task.value = inputValue;
+  displayList();
+}
