@@ -260,3 +260,82 @@ ul {
   border: 4px solid rgb(129, 94, 211);
   background-color: rgb(188, 160, 253);
 }
+
+@media (max-width: 700px){
+  header h1{
+    font-size: 28px;
+  }
+
+  .filter{
+    width: 88px;
+    height: 31px;
+  }
+
+  .todolist{
+    height: calc(100vh - 94px);
+  }
+
+  button.filter-btn{
+    margin: 10px;
+    font-size: 15px;
+  }
+  
+  footer {
+    padding: 47px;
+  }
+
+  footer img {
+    width: 44px;
+  }
+
+  footer input{
+    font-size: 35px;
+  }
+
+  li{
+    font-size: 20px;
+  }
+  
+  .tasklin button {
+    width: 53px;
+    margin: 7px;
+  }
+
+  .select {
+    width: 93px;
+    height: 32px;
+    font-size: 13px;
+    padding: 5px;
+    border: 3px solid rgb(129, 94, 211);
+  }
+
+  .checklist-ctn img {
+    width: 48px;
+  }
+
+}
+
+
+@media (max-width: 400px){
+  .todolist{
+    height: calc(100vh - 52px)
+  }
+  
+  .filter{
+    width: 88px;
+    height: 31px;
+  }
+
+  footer {
+    height: 46px;
+    padding: 26px;
+  }
+
+  footer img {
+    width: 28px;
+  }
+
+  footer input{
+    font-size: 19px;
+  }
+}
